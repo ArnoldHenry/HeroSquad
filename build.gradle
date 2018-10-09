@@ -1,9 +1,7 @@
-plugins {
-    id 'java'
-    id 'application'
-}
 
-group 'com.hero.project'
+    apply plugin : 'java'
+    apply plugin : 'application'
+    
 version '1.0-SNAPSHOT'
 mainClassName = "App"
 applicationName = "HeroSquad"
