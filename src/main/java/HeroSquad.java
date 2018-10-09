@@ -8,7 +8,7 @@ import static spark.Spark.get;
 import static spark.Spark.post;
 import static spark.Spark.setPort;
 
-public class App {
+public class HeroSquad {
 public static void main(String[]args){
 
     ProcessBuilder process = new ProcessBuilder();
