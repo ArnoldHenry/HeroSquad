@@ -1,0 +1,19 @@
+<h1>My Squad Team</h1>
+#if($heroinfo)
+<table class="table table-hover">
+<th>Name</th>
+<th>Age</th>
+<th>Special Powers</th>
+<th>Weakness</th>
+
+<tr>
+#foreach($hero in $heroinfo)
+<td>$heroinfo.getmName()</td>
+<td>$heroinfo.getmAge()</td>
+<td>$heroinfo.getmSpecialPowers()</td>
+<td>$heroinfo.getmWeakness()</td>
+</tr>
+</table>
+#else
+<p>Nope!</p>
+#end
