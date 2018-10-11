@@ -23,8 +23,7 @@ public static void main(String[]args){
 
  String layout = "templates/layout.vtl";
 
-   DataProperties dp = new DataProperties("dnd", 4, "dhjj","fhdj", "hfdj");
-
+   DataProperties dp = new DataProperties("arnold", 26, "god","cryptonite", "Captain America");
 
     get("/",(request,response)->{
         Map<String,Object> model = new HashMap<String, Object>();
