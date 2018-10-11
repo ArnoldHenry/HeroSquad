@@ -1,16 +1,15 @@
 <div class="class="table-responsive"">
-#if ($heroinfo)
+#if ($squadinfo)
  <table class="table">
 <tr>
     <th>Name</th>
-    <th>Age</th>
-    <th>Strength</th>
-    <th>Weakness</th>
+    <th>Cause</th>
+    <th>Size</th>
 </tr>
 <tr>
- #foreach($hero in $heroinfo)
+ #foreach($squad in $squadinfo)
 <td>
-$hero
+$squad
  </td>
   #end
    </tr>
@@ -18,6 +17,5 @@ $hero
 #else
 <p id="nope">No Squad!</p>
 #end
-<a class="w3-btn w3-green" href="/squadform">Add to squad</a>
 <a class="w3-btn w3-blue" href="/">Back to Home</a>
 </div>

@@ -9,17 +9,15 @@
 </tr>
 <tr>
  #foreach($hero in $heroinfo)
-
 <td>
 $hero
-</td>
-
- #end
- </tr>
+ </td>
+  #end
+   </tr>
   </table>
 #else
 <p id="nope">No Squad!</p>
 #end
-<a class="btn btn-outline-dark"href="/squadform">Add New squad</a>
-<a class="btn btn-outline-dark" href="/">Back to Home</a>
+<a class="w3-btn w3-green" href="/squadform">Add to squad</a>
+<a class="w3-btn w3-blue" href="/">Back to Home</a>
 </div>

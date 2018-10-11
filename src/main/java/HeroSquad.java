@@ -27,6 +27,7 @@ public static void main(String[]args){
    DataProperties dp = new DataProperties();
 
     List<Object> allheroes = new ArrayList<Object>();
+    List<Object> allsquad = new ArrayList<Object>();
 
     get("/",(request,response)->{
         Map<String,Object> model = new HashMap<String, Object>();
@@ -64,9 +65,29 @@ public static void main(String[]args){
         return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    get("/squadform",(request, response) ->{
+    post("/squadform",(request, response) ->{
         Map<String, Object> model = new HashMap<String, Object>();
+        try{
+        String namesquad = request.queryParams("namesquad");
+        dp.setmSquadname(namesquad);
+        String squadcause = request.queryParams("cause");
+        dp.setmSquadCause(squadcause);
+        String squadsize = request.queryParams("size");
+        dp.setmSquadSize(squadsize);
+            model.put("template", "templates/squadsuccess.vtl");
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
 
+    get("/squadform", (request, response) -> {
+        Map<String, Object> model = new HashMap<String, Object>();
+        allsquad.add(dp.getmSquadname());
+        allsquad.add(dp.getmSquadCause());
+        allsquad.add(dp.getmSquadSize());
+        model.put("squadinfo", allsquad);
+        model.put("template", "templates/squadform.vtl");
         return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 

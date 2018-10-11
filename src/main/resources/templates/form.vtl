@@ -1,4 +1,5 @@
 <h2>Create your Hero</h2>
+<div class="container">
 <form action="/heros" method="post">
     <div class="form-action">
         <label for="namehero">Name of hero:</label>
@@ -17,6 +18,29 @@
                     <input type="text" name="weakness" id="weakness" class="form-control" required>
      </div>
      <div class="form-action">
-     <button type="submit" name="submit" class="btn form-control">Submit</button>
+     <button type="submit" name="submit" class="w3-btn w3-green">Submit</button>
      <div>
 </form>
+</div>
+
+
+<h2>Create Squad</h2>
+<div class="container">
+<form action="/squadform" method="post">
+    <div class="form-action">
+        <label for="namesquad">Name of Squad:</label>
+        <input type="text" name="namesquad" id="namesquad" class="form-control" required>
+    </div>
+    <div class="form-action">
+            <label for="cause">Cause of Squad:</label>
+            <input type="text" name="cause" id="cause" class="form-control" required>
+    </div>
+    <div class="form-action">
+                <label for="size"> Size of Size:</label>
+                <input type="number" name="size" id="size" class="form-control" required>
+     </div>
+     <div class="form-action">
+     <button type="submit" name="submit" class="w3-btn w3-green">Submit</button>
+     <div>
+</form>
+</div>

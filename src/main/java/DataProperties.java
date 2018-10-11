@@ -8,6 +8,8 @@ public class DataProperties {
     private String mSpecialPowers;
     private String mWeakness;
     private String mSquadname;
+    private String mSquadCause;
+    private String mSquadSize;
     private static List<DataProperties> instances = new ArrayList<DataProperties>();
 
     public static List<DataProperties> all(){
@@ -28,6 +30,22 @@ public class DataProperties {
 
     public String getmSquadname() {
         return mSquadname;
+    }
+
+    public String getmSquadCause() {
+        return mSquadCause;
+    }
+
+    public String getmSquadSize() {
+        return mSquadSize;
+    }
+
+    public void setmSquadCause(String mSquadCause) {
+        this.mSquadCause = mSquadCause;
+    }
+
+    public void setmSquadSize(String mSquadSize) {
+        this.mSquadSize = mSquadSize;
     }
 
     public String getmWeakness() {
