@@ -5,9 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static spark.Spark.get;
-import static spark.Spark.post;
-import static spark.Spark.setPort;
+import static spark.Spark.*;
 
 public class HeroSquad {
 public static void main(String[]args){
@@ -23,6 +21,7 @@ public static void main(String[]args){
     setPort(port);
 
  String layout = "templates/layout.vtl";
+ staticFileLocation("/public");
 
    DataProperties dp = new DataProperties();
 
