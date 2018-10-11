@@ -10,15 +10,6 @@ public class DataProperties {
     private String mSquadname;
     private static List<DataProperties> instances = new ArrayList<DataProperties>();
 
-    public DataProperties(String name, int age, String powers, String weakness, String squad){
-        this.mName = name;
-        this.mAge = age;
-        this.mSpecialPowers= powers;
-        this.mWeakness = weakness;
-        this.mSquadname= squad;
-        instances.add(this);
-    }
-
     public static List<DataProperties> all(){
         return instances;
     }
@@ -62,4 +53,6 @@ public class DataProperties {
     public void setmWeakness(String mWeakness) {
         this.mWeakness = mWeakness;
     }
+
+
 }

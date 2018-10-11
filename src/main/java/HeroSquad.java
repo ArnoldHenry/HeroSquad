@@ -2,6 +2,7 @@ import spark.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.get;
@@ -23,7 +24,9 @@ public static void main(String[]args){
 
  String layout = "templates/layout.vtl";
 
-   DataProperties dp = new DataProperties("arnold", 26, "god","cryptonite", "Captain America");
+   DataProperties dp = new DataProperties();
+
+    List<Object> allheroes = new ArrayList<Object>();
 
     get("/",(request,response)->{
         Map<String,Object> model = new HashMap<String, Object>();
@@ -32,40 +35,35 @@ public static void main(String[]args){
     },new VelocityTemplateEngine());
 
 
-    post("/hero",((request, response) -> {
+    post("/heros",((request, response) -> {
         Map<String,Object> model = new HashMap<String,Object>();
-
-        ArrayList<DataProperties> dataProperties = request.session().attribute("heroinfo");
-        if (dataProperties == null){
-        dataProperties = new ArrayList<>();
-        request.session().attribute("heroinfo",dataProperties);
-    }
-
-        String name = request.queryParams("namehero");
-        dp.setmName(name);
-
-        int age = Integer.parseInt(request.queryParams("age")) ;
-        dp.setmAge(age);
-
-        String SpecialPower = request.queryParams("SpecialPower");
-        dp.setmSpecialPowers(SpecialPower);
-
-        String weakness = request.queryParams("weakness");
-        dp.setmWeakness(weakness);
-
-        request.session().attribute("namehero",dp);
-        request.session().attribute("age",dp);
-        request.session().attribute("SpecialPower",dp);
-        request.session().attribute("weakness",dp);
-
-        model.put("heroinfo",request.session().attribute("namehero"));
-        model.put("heroinfo",request.session().attribute("age"));
-        model.put("heroinfo",request.session().attribute("SpecialPower"));
-        model.put("heroinfo",request.session().attribute("weakness"));
-        model.put("template","templates/hero.vtl");
+         try{
+             String name = request.queryParams("namehero");
+             dp.setmName(name);
+             int age = Integer.parseInt(request.queryParams("age")) ;
+             dp.setmAge(age);
+             String SpecialPower = request.queryParams("SpecialPower");
+             dp.setmSpecialPowers(SpecialPower);
+             String weakness = request.queryParams("weakness");
+             dp.setmWeakness(weakness);
+             model.put("template","templates/success.vtl");
+         }catch(Exception ex){
+             System.out.println(ex.getMessage());
+         }
         return new ModelAndView(model,layout);
     }),new VelocityTemplateEngine());
-}
 
+    get("/hero", (request, response) -> {
+        Map<String, Object> model = new HashMap<String, Object>();
+        allheroes.add(dp.getmName());
+        allheroes.add(dp.getmAge());
+        allheroes.add(dp.getmSpecialPowers());
+        allheroes.add(dp.getmWeakness());
+        model.put("heroinfo", allheroes);
+        model.put("template", "templates/hero.vtl");
+        return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+}
 
 }

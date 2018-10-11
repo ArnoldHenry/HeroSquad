@@ -1,22 +1,22 @@
 <h2>Create your Hero</h2>
-<form action="/hero" method="post">
+<form action="/heros" method="post">
     <div class="form-action">
         <label for="namehero">Name of hero:</label>
-        <input type="text" name="namehero" id="namehero" class="form-control">
+        <input type="text" name="namehero" id="namehero" class="form-control" required>
     </div>
     <div class="form-action">
             <label for="age">Age:</label>
-            <input type="number" name="age" id="age" class="form-control">
+            <input type="number" name="age" id="age" class="form-control" required>
     </div>
     <div class="form-action">
                 <label for="SpecialPower">Special Power:</label>
-                <input type="text" name="SpecialPower" id="SpecialPower" class="form-control">
+                <input type="text" name="SpecialPower" id="SpecialPower" class="form-control" required>
      </div>
      <div class="form-action">
                     <label for="weakness">Weakness:</label>
-                    <input type="text" name="weakness" id="weakness" class="form-control">
+                    <input type="text" name="weakness" id="weakness" class="form-control" required>
      </div>
-     <div>
-     <button type="submit" name="submit" class="btn">Submit</button>
+     <div class="form-action">
+     <button type="submit" name="submit" class="btn form-control">Submit</button>
      <div>
 </form>
