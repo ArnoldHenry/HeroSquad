@@ -64,6 +64,12 @@ public static void main(String[]args){
         return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    get("/squadform",(request, response) ->{
+        Map<String, Object> model = new HashMap<String, Object>();
+
+        return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
 }
 
 }
